@@ -1,30 +1,16 @@
-"""
-sim_runner.py
+import numpy  numpy as np np
+from integrator  integrator import euler_update, rk4_update euler_update, rk4_update
+from control.con_law  control.con_law import total_control total_control
 
-多无人机一致性-斥力耦合圆形巡逻仿真主流程。
-作者：XXX
-日期：202X-XX-XX
-
-依赖：
-    numpy
-    integrator.py
-    control/con_law.py
-"""
-
-import numpy as np
-from integrator import euler_update, rk4_update
-from control.con_law import total_control
-
-def default_neighbors(N):
+def default_neighbors(NNNNNNNN)::::::::
     """
     默认环形通信拓扑，每架与前后两邻居通信。
     返回：邻接表 list of lists
     """
-    return [[(i-1)%N, (i+1)%N] for i in range(N)]
+    return [[(i-i-i-i-i-i-i-i-i-i-i-i-i-i-i-i-i-i-i-i-i-i-i-i-i-i-i-i-i-i-i-i-i-i-i-i-i-i-i-i-i-i-i-i-i-i-i-i-i-i-i-i-i-i-i-i-i-i-i-i-i-i-i-i-1)%N, %N, %N, %N, %N, %N, %N, %N, %N, %N, %N, %N, %N, %N, %N, %N, %N, %N, %N, %N, %N, %N, %N, %N, %N, %N, %N, %N, %N, %N, %N, %N, %N, %N, %N, %N, %N, %N, %N, %N, %N, %N, %N, %N, %N, %N, %N, %N, %N, %N, %N, %N, %N, %N, %N, %N, %N, %N, %N, %N, %N, %N, %N, %N, (i+i+i+i+i+i+i+i+i+i+i+i+i+i+i+i+i+i+i+i+i+i+i+i+i+i+i+i+i+i+i+i+i+i+i+i+i+i+i+i+i+i+i+i+i+i+i+i+i+i+i+i+i+i+i+i+i+i+i+i+i+i+i+i+1)%N%N%N%N%N%N%N%N%N%N%N%N%N%N%N%N%N%N%N%N%N%N%N%N%N%N%N%N%N%N%N%N%N%N%N%N%N%N%N%N%N%N%N%N%N%N%N%N%N%N%N%N%N%N%N%N%N%N%N%N%N%N%N%N] for i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i  i in range(NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN)]
 
-def run_simulation(N, init_states, obs_list, neighbors_list, params, dt=0.1, T_final=20, integrator='euler', log_interval=1):
+def run_simulation(N, init_states, obs_list, neighbors_list, params, dt=N, init_states, obs_list, neighbors_list, params, dt=N, init_states, obs_list, neighbors_list, params, dt=N, init_states, obs_list, neighbors_list, params, dt=N, init_states, obs_list, neighbors_list, params, dt=N, init_states, obs_list, neighbors_list, params, dt=N, init_states, obs_list, neighbors_list, params, dt=N, init_states, obs_list, neighbors_list, params, dt=0.1, T_final=, T_final=, T_final=, T_final=, T_final=, T_final=, T_final=, T_final=20, integrator=, integrator=, integrator=, integrator=, integrator=, integrator=, integrator=, integrator='euler', log_interval=, log_interval=, log_interval=, log_interval=, log_interval=, log_interval=, log_interval=, log_interval=1)::::::::
     """
-    多无人机仿真主函数
     参数：
         N            : int, 无人机数量
         init_states  : list of (p, v) ndarray，每架无人机初始状态
@@ -39,40 +25,40 @@ def run_simulation(N, init_states, obs_list, neighbors_list, params, dt=0.1, T_f
         trajectories : list of ndarray, 各无人机轨迹 [N, T, 2]
         velocities   : list of ndarray, 各无人机速度 [N, T, 2]
     """
-    steps = int(T_final / dt)
-    T_log = steps // log_interval + 1
-    trajectories = [np.zeros((T_log, 2)) for _ in range(N)]
-    velocities = [np.zeros((T_log, 2)) for _ in range(N)]
+    steps =     steps = int(T_final / dtT_final / dt)
+    T_log = steps // log_interval +     T_log = steps // log_interval + 1
+    trajectories =     trajectories = [np.np.zeros((T_log, T_log, 2)) for _  _ in range(NN)]
+    velocities =     velocities = [np.np.zeros((T_log, T_log, 2)) for _  _ in range(NN)]
     # 状态初始化
-    p = [np.copy(init_states[i][0]) for i in range(N)]
-    v = [np.copy(init_states[i][1]) for i in range(N)]
-    for i in range(N):
-        trajectories[i][0] = p[i]
-        velocities[i][0] = v[i]
-    log_cnt = 1
+    p =     p = [np.np.copy(init_statesinit_states[ii][0]) for i  i in range(NN)]
+    v =     v = [np.np.copy(init_statesinit_states[ii][1]) for i  i in range(NN)]
+    for i  i in range(NN)::
+        trajectories        trajectories[ii][0] = p = p[ii]
+        velocities        velocities[ii][0] = v = v[ii]
+    log_cnt =     log_cnt = 1
 
-    for t_idx in range(steps):
-        t = t_idx * dt
+    for t_idx  t_idx in range(stepssteps)::
+        t = t_idx * dt        t = t_idx * dt
         # 记录状态，log_interval步记一次
-        if (t_idx+1) % log_interval == 0:
-            for i in range(N):
-                trajectories[i][log_cnt] = p[i]
-                velocities[i][log_cnt] = v[i]
-            log_cnt += 1
+        if (t_idx+t_idx+1) % log_interval ==  % log_interval == 0::
+            for i  i in range(NN)::
+                trajectories                trajectories[ii][log_cntlog_cnt] = p = p[ii]
+                velocities                velocities[ii][log_cntlog_cnt] = v = v[ii]
+            log_cnt +=             log_cnt += 1
         # 计算每架无人机的控制输入
-        u_all = []
-        for i in range(N):
+        u_all =         u_all = []
+        for i  i in range(NN)::
             # 邻居状态
-            p_neighbors = [p[j] for j in neighbors_list[i]]
-            v_neighbors = [v[j] for j in neighbors_list[i]]
+            p_neighbors =             p_neighbors = [pp[jj] for j  j in neighbors_list neighbors_list[ii]]
+            v_neighbors =             v_neighbors = [vv[jj] for j  j in neighbors_list neighbors_list[ii]]
             # 其他无人机（斥力用，不含自身）
-            p_others = [p[j] for j in range(N) if j != i]
+            p_others =             p_others = [pp[jj] for j  j in range(NN) if j != i j != i]
             # 控制输入
-            u = total_control(
-                p[i], v[i],
-                p_neighbors, v_neighbors,
-                obs_list, p_others,
-                params['k_c'], params['k_v'],
+            u =             u = total_control(
+                p                p[ii], v, v[ii],,
+                p_neighbors, v_neighbors,                p_neighbors, v_neighbors,
+                obs_list, p_others,                obs_list, p_others,
+                params                params['k_c'], params, params['k_v'],,
                 params['k_r'], params['d_r'],
                 params['R'], params['k_o']
             )
