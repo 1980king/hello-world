@@ -22,14 +22,16 @@ def consensus_input(p_i, v_i, p_neighbors, v_neighbors, k_c, k_v):
 def repulsive_input(p_i, p_obs_list, p_others, k_r, d_r):
     """
     斥力控制项：对障碍和其他无人机的安全避障。
+
     参数:
         p_i       : ndarray, 本机位置 (2,)
         p_obs_list: list of ndarray, 障碍中心 [(2,), ...]
-        p_others  : list of ndarray, 其他无人机         p_others  : list of ndarray, 其他无人机 [(2,,), ..., ...]（不含本机）（不含本机）
-        k_r       : float, 斥力势场增益        k_r       : float, 斥力势场增益
-        d_r       : float, 斥力作用半径        d_r       : float, 斥力作用半径
-    返回:    返回:
-        u_rep     : ndarray,         u_rep     : ndarray, 斥力控制输出 (2,,)
+        p_others  : list of ndarray, 其他无人机 [(2,), ...]（不含本机）
+        k_r       : float, 斥力势场增益
+        d_r       : float, 斥力作用半径
+
+    返回:
+        u_rep     : ndarray, 斥力控制输出 (2,)
     """
     u_rep = np.zeros_like(p_i)
     # 对障碍物的斥力
@@ -50,13 +52,15 @@ def repulsive_input(p_i, p_obs_list, p_others, k_r, d_r):
 
 def orbit_input(p_i, R, k_o):
     """
-    圆周维持控制项.    圆周维持控制项.
-    参数:    参数:
-        p_i : ndarray,         p_i : ndarray, 本机位置 (2,,)
-        R   : float, 期望圆半径        R   : float, 期望圆半径
-        k_o : float, 维持增益        k_o : float, 维持增益
-    返回:    返回:
-        u_orb : ndarray,         u_orb : ndarray, 圆周维持控制输出 (2,,)
+    圆周维持控制项。
+
+    参数:
+        p_i : ndarray, 本机位置 (2,)
+        R   : float, 期望圆半径
+        k_o : float, 维持增益
+
+    返回:
+        u_orb : ndarray, 圆周维持控制输出 (2,)
     """
     norm = np.linalg.norm(p_i)
     if norm == 0:

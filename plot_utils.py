@@ -30,11 +30,12 @@ def plot_trajectories(trajectories, obs_list=None, R=None, title="UAV Trajectori
 
 def plot_error(trajectories, R, title="Radial Error vs Time"):
     """
-    绘制所有无人机的径向误差随时间变化曲线。    绘制所有无人机的径向误差随时间变化曲线。
-    参数:    参数:
-        trajectories : list of ndarray,         trajectories : list of ndarray, shape (T,T,2)
-        R            : float, 期望圆半径        R            : float, 期望圆半径
-        title        : str, 图标题        title        : str, 图标题
+    绘制所有无人机的径向误差随时间变化曲线。
+
+    参数:
+        trajectories : list of ndarray, shape (T, T, 2)
+        R            : float, 期望圆半径
+        title        : str, 图标题
     """
     plt.figure()
     T = trajectories[0].shape[0]
@@ -52,10 +53,11 @@ def plot_error(trajectories, R, title="Radial Error vs Time"):
 
 def plot_min_distance(trajectories, title="Minimum Inter-UAV Distance vs Time"):
     """
-    绘制最小机间距离随时间变化曲线（用于检测碰撞风险）。    绘制最小机间距离随时间变化曲线（用于检测碰撞风险）。
-    参数:    参数:
-        trajectories : list of ndarray,         trajectories : list of ndarray, shape (T,T,2)
-        title        : str, 图标题        title        : str, 图标题
+    绘制最小机间距离随时间变化曲线（用于检测碰撞风险）。
+
+    参数:
+        trajectories : list of ndarray, shape (T, T, 2)
+        title        : str, 图标题
     """
     N = len(trajectories)
     T = trajectories[0].shape[0]
