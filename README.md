@@ -1,5 +1,12 @@
-# hello-world
-first repository
+基于一致性-斥力耦合的多无人机圆形巡逻与队形保持仿真系统
+项目简介
+本项目实现了多无人机在二维空间内的圆形巡逻与队形保持的仿真平台。采用一致性-斥力耦合控制算法，支持障碍物避障、参数灵敏度测试及仿真数据可视化。
 
-hello!
-I'm a new comer here,and I'm learing how to add some changes in my branch
+project_root/
+│
+├── integrator.py            # 积分器模块（Euler/RK4）
+├── control/
+│     └── con_law.py         # 控制律模块（共三项）
+├── sim_runner.py            # 仿真主流程（批量调度、数据记录）
+├── plot_utils.py            # 可视化模块
+├── README.md                # 本说明文件
