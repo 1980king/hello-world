@@ -1,22 +1,8 @@
-"""
-plot_utils.py
-
-无人机仿真结果可视化工具模块。
-包含轨迹绘制、径向误差、最小间距等常用分析接口。
-作者：XXX
-日期：202X-XX-XX
-
-依赖:
-    matplotlib
-    numpy
-"""
-
 import matplotlib.pyplot as plt
 import numpy as np
 
 def plot_trajectories(trajectories, obs_list=None, R=None, title="UAV Trajectories"):
     """
-    绘制所有无人机轨迹（2D），支持障碍物和参考圆轨迹可选显示。
     参数:
         trajectories : list of ndarray, 每个shape (T,2)
         obs_list     : list of ndarray, 障碍中心，可选
@@ -44,11 +30,11 @@ def plot_trajectories(trajectories, obs_list=None, R=None, title="UAV Trajectori
 
 def plot_error(trajectories, R, title="Radial Error vs Time"):
     """
-    绘制所有无人机的径向误差随时间变化曲线。
-    参数:
-        trajectories : list of ndarray, shape (T,2)
-        R            : float, 期望圆半径
-        title        : str, 图标题
+    绘制所有无人机的径向误差随时间变化曲线。    绘制所有无人机的径向误差随时间变化曲线。
+    参数:    参数:
+        trajectories : list of ndarray,         trajectories : list of ndarray, shape (T,T,2)
+        R            : float, 期望圆半径        R            : float, 期望圆半径
+        title        : str, 图标题        title        : str, 图标题
     """
     plt.figure()
     T = trajectories[0].shape[0]
@@ -66,10 +52,10 @@ def plot_error(trajectories, R, title="Radial Error vs Time"):
 
 def plot_min_distance(trajectories, title="Minimum Inter-UAV Distance vs Time"):
     """
-    绘制最小机间距离随时间变化曲线（用于检测碰撞风险）。
-    参数:
-        trajectories : list of ndarray, shape (T,2)
-        title        : str, 图标题
+    绘制最小机间距离随时间变化曲线（用于检测碰撞风险）。    绘制最小机间距离随时间变化曲线（用于检测碰撞风险）。
+    参数:    参数:
+        trajectories : list of ndarray,         trajectories : list of ndarray, shape (T,T,2)
+        title        : str, 图标题        title        : str, 图标题
     """
     N = len(trajectories)
     T = trajectories[0].shape[0]
